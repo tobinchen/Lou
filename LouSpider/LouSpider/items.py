@@ -10,5 +10,10 @@ import scrapy
 
 class LouspiderItem(scrapy.Item):
     # define the fields for your item here like:
-    name = scrapy.Field()
+    date = scrapy.Field()
+    lou = scrapy.Field()
+    square = scrapy.Field()
+    number = scrapy.Field()
+    amount = scrapy.Field()
+    price = scrapy.Field()
     pass
