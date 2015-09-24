@@ -5,6 +5,7 @@
 import scrapy
 from LouSpider.items import LouspiderItem
 from scrapy.http import FormRequest
+from scrapy.selector import Selector
 
 class lou(scrapy.spiders.Spider):
     name = "lou"
@@ -21,8 +22,13 @@ class lou(scrapy.spiders.Spider):
 formdata = formdata,callback=self.parseData)
 
     def parseData(self, response):
-        print response
+        sel = Selector(response)
 
-        qyItem=LouspiderItem()
-        qyItem['name']=response.url
-        return  LouspiderItem
+        trs=sel.xpath("//table[@width=580]/tr")
+        del trs[0]
+        for tr in trs:
+            qyItem=LouspiderItem()
+            qyItem['name']=tr.extract()
+            yield  qyItem
+            #items.append(qyItem)
+        #return  items

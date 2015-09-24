@@ -43,9 +43,12 @@ NEWSPIDER_MODULE = 'LouSpider.spiders'
 
 # Enable or disable spider middlewares
 # See http://scrapy.readthedocs.org/en/latest/topics/spider-middleware.html
-#SPIDER_MIDDLEWARES = {
-#    'LouSpider.middlewares.MyCustomSpiderMiddleware': 543,
-#}
+SPIDER_MIDDLEWARES = {
+    'LouSpider.middlewares.LookMiddleware': 1,
+    #'scrapy.contrib.spidermiddleware.depth.DepthMiddleware': None,
+    #'scrapy.contrib.spidermiddleware.urllength.UrlLengthMiddleware': None,
+    #'scrapy.contrib.spidermiddleware.referer.RefererMiddleware': None,
+}
 
 # Enable or disable downloader middlewares
 # See http://scrapy.readthedocs.org/en/latest/topics/downloader-middleware.html
