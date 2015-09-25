@@ -32,7 +32,6 @@ formdata = formdata,callback=self.parseData)
         sel = Selector(response)
 
         trs=sel.xpath("//table[@width=580]/tr")
-<<<<<<< Updated upstream
         if len(trs)<1:
             return
 
@@ -49,14 +48,3 @@ formdata = formdata,callback=self.parseData)
 
             print qyItem['lou'],tds[0]
             yield  qyItem
-            #items.append(qyItem)
-=======
-        if len(trs)>1:
-            del trs[0]
-            for tr in trs:
-                qyItem=LouspiderItem()
-                qyItem['name']=tr.extract()
-                yield  qyItem
-                #items.append(qyItem)
->>>>>>> Stashed changes
-        #return  items
