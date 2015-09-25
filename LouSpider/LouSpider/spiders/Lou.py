@@ -33,6 +33,7 @@ formdata = formdata,callback=self.parseData)
 
         trs=sel.xpath("//table[@width=580]/tr")
         if len(trs)<1:
+            log.err('parseData',response.meta['date'])
             return
 
         del trs[0]
